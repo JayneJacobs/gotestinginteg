@@ -46,11 +46,11 @@ func TestSort(t *testing.T) {
 	Sort(elements)
 	lelement := elements[len(elements)-1]
 	if elements[len(elements)-1] != 9 {
-		t.Error("The lastElement should be 0. it is ", lelement)
+		t.Error("The lastElement should be 9. it is ", lelement)
 	}
 	felement := elements[0]
 	if elements[0] != 0 {
-		t.Error("The first element should be 9, it is ", felement)
+		t.Error("The first element should be 0, it is ", felement)
 	}
 	fmt.Println(elements)
 }
