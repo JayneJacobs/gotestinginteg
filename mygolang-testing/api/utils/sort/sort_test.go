@@ -12,11 +12,11 @@ func TestBubbleSort(t *testing.T) {
 
 	BubbleSort(elements)
 	lelement := elements[len(elements)-1]
-	if elements[len(elements)-1] != 9 {
+	if elements[len(elements)-1] != 0 {
 		t.Error("The lastElement should be 0. it is ", lelement)
 	}
 	felement := elements[0]
-	if elements[0] != 0 {
+	if elements[0] != 9 {
 		t.Error("The first element should be 9, it is ", felement)
 	}
 	fmt.Println(elements)
