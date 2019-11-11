@@ -1,4 +1,4 @@
-[package services
+package services
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ func Test_Constants(t *testing.T) {
 }
 func Test_BSort(t *testing.T) {
 	elements := []int{9, 8, 7, 5, 4, 6, 1, 0, 3, 2}
-	fmt.Println(elements)
+	// fmt.Println(elements)
 
 	BSort(elements)
 	lelement := elements[len(elements)-1]
@@ -23,7 +23,22 @@ func Test_BSort(t *testing.T) {
 	if elements[0] != 9 {
 		t.Error("The first element should be 9, it is ", felement)
 	}
-	fmt.Println(elements)
+	// fmt.Println(elements)
+}
+func Test_BSort10X3(t *testing.T) {
+	elements := getElements(10001)
+	// fmt.Println(elements)
+
+	BSort(elements)
+	lelement := elements[len(elements)-1]
+	if elements[len(elements)-1] != 0 {
+		t.Error("The lastElement should be 9. it is ", lelement)
+	}
+	felement := elements[0]
+	if elements[0] != 10000 {
+		t.Error("The first element should be 10000, it is ", felement)
+	}
+	// fmt.Println(elements)
 }
 
 func Test_Sort(t *testing.T) {
@@ -40,6 +55,21 @@ func Test_Sort(t *testing.T) {
 		t.Error("The first element should be 0, it is ", felement)
 	}
 	fmt.Println(elements)
+}
+func Test_Sort10X3(t *testing.T) {
+	elements := getElements(10001)
+	// fmt.Println(elements)
+
+	Sort(elements)
+	lelement := elements[len(elements)-1]
+	if elements[len(elements)-1] != 10000 {
+		t.Error("The lastElement should be 10000. it is ", lelement)
+	}
+	felement := elements[0]
+	if elements[0] != 0 {
+		t.Error("The first element should be 0, it is ", felement)
+	}
+	// fmt.Println(elements)
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
@@ -61,26 +91,26 @@ func getElements(n int) []int {
 	result := make([]int, n)
 	j := 0
 	for i := n - 1; i > 0; i-- {
-		result[j] = 1
+		result[j] = i
 		j++
 	}
 	return result
 }
-func BenchmarkBubbleSortS(b *testing.B) {
+func BenchmarkBubbleSort10X3(b *testing.B) {
 	elements := getElements(10000)
 	for i := 0; i < b.N; i++ {
 		BSort(elements)
 	}
 }
 
-func BenchmarkBSortLimit(b *testing.B) {
+func BenchmarkBSortLimitGT10X3(b *testing.B) {
 	elements := getElements(10000)
 	for i := 0; i < b.N; i++ {
 		Sort(elements)
 	}
 }
 
-func BenchmarkSortS(b *testing.B) {
+func BenchmarkSort10X3(b *testing.B) {
 	elements := getElements(10000)
 	for i := 0; i < b.N; i++ {
 		Sort(elements)

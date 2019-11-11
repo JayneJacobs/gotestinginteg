@@ -20,7 +20,7 @@ func Sort(elements []int) {
 
 // BSortLimit Limits by using native sort for elements > 10000
 func BSortLimit(elements []int) {
-	if len(elements) < 10000 {
+	if len(elements) <= 10000 {
 		sort.BubbleSort(elements)
 		return
 	}
