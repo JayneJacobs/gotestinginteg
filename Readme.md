@@ -102,3 +102,4 @@ t.Error Statement will continue to execute after a fail condition.
 ## [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
 
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
+Test different approaches to solving a problem. 
