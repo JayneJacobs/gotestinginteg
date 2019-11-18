@@ -3,23 +3,25 @@
 <!-- TOC -->
 
 - [1. Testing and Integration with go](#1-testing-and-integration-with-go)
-  - [2. Course Repo](#2-course-repo)
-  - [2.1. Types of testing](#21-types-of-testing)
-  - [2.2. Artifacts of each Test Type](#22-artifacts-of-each-test-type)
-  - [2.3. Pyramid of Tests](#23-pyramid-of-tests)
-  - [3. Steps to follow when writing a test cast](#3-steps-to-follow-when-writing-a-test-cast)
-  - [3.1. Test Coverage](#31-test-coverage)
-  - [Benchmark Testing](#benchmark-testing)
+  - [1.1. Course Repo](#11-course-repo)
+  - [1.2. Types of testing](#12-types-of-testing)
+  - [1.3. Artifacts of each Test Type](#13-artifacts-of-each-test-type)
+  - [1.4. Pyramid of Tests](#14-pyramid-of-tests)
+  - [1.5. Steps to follow when writing a test cast](#15-steps-to-follow-when-writing-a-test-cast)
+  - [1.6. Test Coverage](#16-test-coverage)
+  - [1.7. Benchmark Testing](#17-benchmark-testing)
+- [2. Assertions](#2-assertions)
+  - [2.1. API Library](#21-api-library)
 
 <!-- /TOC -->
 
-## 2. Course Repo
+## 1.1. Course Repo
 
 ```sh
 git clone https://github.com/federicoleon/golang-testing.git
 ```
 
-## 2.1. Types of testing
+## 1.2. Types of testing
 
 ![TestType](Resources/TestTypes.png)
 
@@ -42,11 +44,11 @@ Not as rich or complete
 
 **Systems:**
 
-## 2.2. Artifacts of each Test Type
+## 1.3. Artifacts of each Test Type
 
 ![TestType](Resources/ArtifactsofTypes.png)
 
-## 2.3. Pyramid of Tests
+## 1.4. Pyramid of Tests
 
 ![Pyramid](Resources/Pyramid.png)
 
@@ -61,7 +63,7 @@ func TestFunctionName(t *testing.T) {
     //Validate
 }
 
-## 3. Steps to follow when writing a test cast
+## 1.5. Steps to follow when writing a test cast
 
 1. Initialization
 2. Execution
@@ -71,7 +73,7 @@ func TestFunctionName(t *testing.T) {
 go test (everything in package)
 go test -v .
 
-## 3.1. Test Coverage
+## 1.6. Test Coverage
 
 go test -cover
 
@@ -99,7 +101,25 @@ t.Error Statement will continue to execute after a fail condition.
 [Project Integration](mygolang-testing/IntegrationTest.md)
 
 
-## [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
+## 1.7. [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
 
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
-Test different approaches to solving a problem. 
+Test different approaches to solving a problem.
+
+# 2. Assertions
+
+Go Does not have assertions by default; you can create them with error statements. 
+
+github.com/stretcher/testify/assert
+
+
+## 2.1. [API Library](mygolang-testing/api/domain/locations/povider_locations/scenarios.md)
+
+merdadolibre/golang-restclient
+
+``` go get github.com/mercadolibre/golang-restclient/rest```
+
+https://api.mercadolibre.com/countries
+
+
+[Testing the API](mygolang-testing/api/domain/locations/povider_locations/provider_locations_test.go)
