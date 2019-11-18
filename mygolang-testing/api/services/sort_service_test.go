@@ -2,6 +2,7 @@ package services
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -13,13 +14,17 @@ func Test_Constants(t *testing.T) {
 func Test_BSort(t *testing.T) {
 	elements := []int{9, 8, 7, 5, 4, 6, 1, 0, 3, 2}
 	// fmt.Println(elements)
-
 	BSort(elements)
 	lelement := elements[len(elements)-1]
+	assert.EqualValues(t, 10, len(elements))
+	assert.EqualValues(t, 9, elements[0])
+	assert.EqualValues(t, 0, elements[len(elements)-1])
 	if elements[len(elements)-1] != 0 {
 		t.Error("The lastElement should be 9. it is ", lelement)
 	}
+	assert.EqualValues(t, 0, lelement)
 	felement := elements[0]
+	assert.EqualValues(t, 9, felement)
 	if elements[0] != 9 {
 		t.Error("The first element should be 9, it is ", felement)
 	}
@@ -28,7 +33,7 @@ func Test_BSort(t *testing.T) {
 func Test_BSort10X3(t *testing.T) {
 	elements := getElements(10001)
 	// fmt.Println(elements)
-
+	assert.NotNil(t, elements)
 	BSort(elements)
 	lelement := elements[len(elements)-1]
 	if elements[len(elements)-1] != 0 {
@@ -54,6 +59,17 @@ func Test_Sort(t *testing.T) {
 	if elements[0] != 0 {
 		t.Error("The first element should be 0, it is ", felement)
 	}
+	fmt.Println(elements)
+}
+func Test_SortAssert(t *testing.T) {
+	elements := []int{9, 8, 7, 5, 4, 6, 1, 0, 3, 2}
+	fmt.Println(elements)
+	assert.NotNil(t, elements)
+	Sort(elements)
+	lelement := elements[len(elements)-1]
+	assert.EqualValues(t, 9, lelement)
+	felement := elements[0]
+	assert.EqualValues(t, 0, felement)
 	fmt.Println(elements)
 }
 func Test_Sort10X3(t *testing.T) {
@@ -87,7 +103,7 @@ func BenchmarkSort(b *testing.B) {
 	}
 }
 
-func getElements(n int) []int {
+func GetElements(n int) []int {
 	result := make([]int, n)
 	j := 0
 	for i := n - 1; i > 0; i-- {
