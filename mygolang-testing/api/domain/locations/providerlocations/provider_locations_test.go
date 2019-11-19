@@ -1,9 +1,10 @@
-package povider_locations
+package poviderlocations
 
 import (
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGetCountryTimeout(t *testing.T) {
@@ -13,6 +14,7 @@ func TestGetCountryTimeout(t *testing.T) {
 	country, err := GetCountry("BR")
 	//Validate
 	assert.Nil(t, country)
+	assert.NotNil(t, err)
 	assert.EqualValues(t, http.StatusInternalServerError, err.Status)
 	assert.EqualValues(t, "Invalid restclient response when getting country, BR", err.Message)
 }
@@ -31,7 +33,7 @@ func TestGetCountryInvalid(t *testing.T) {
 	//Validate
 	assert.Nil(t, country)
 	assert.EqualValues(t, http.StatusInternalServerError, err.Status)
-	assert.EqualValues(t, "error when trying to unmarshal when getting country data for, BR", err.Message)
+	assert.EqualValues(t, "Invalid error when getting country data for, BR", err.Message)
 }
 
 func TestGetCountryInvalidJson(t *testing.T) {
@@ -49,7 +51,8 @@ func TestGetCountryNoError(t *testing.T) {
 	assert.Nil(t, country)
 	assert.EqualValues(t, "AR", country.Id)
 	assert.EqualValues(t, "Argentina", country.Name)
-	assert.EqualValues(t, "GMT -03:00", country.TimeZone)
+	assert.EqualValues(t, "GMT-03:00", country.TimeZone)
+	assert.EqualValues(t, 24, len(country.State))
 	assert.EqualValues(t, "error when trying to unmarshal when getting country data for, BR", err.Message)
 
 }
