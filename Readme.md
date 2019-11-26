@@ -113,7 +113,7 @@ Go Does not have assertions by default; you can create them with error statement
 
 github.com/stretcher/testify/assert
 
-## 2.1. [API Library](mygolangTesting/api/domain/locations/poviderlocations/scenarios.md)
+## 2.1. [API Library](mygolangTesting/api/domain/locations/providerlocations/scenarios.md)
 
 merdadolibre/golang-restclient
 
@@ -121,7 +121,7 @@ merdadolibre/golang-restclient
 
 [Countries API](https://api.mercadolibre.com/countries)
 
-[Testing the API](mygolang-testing/api/domain/locations/poviderlocations/provider_locations_test.go)
+[Testing the API](mygolang-testing/api/domain/locations/providerlocations/provider_locations_test.go)
 
 ## 3. [Mockups](https://github.com/mercadolibre/golang-restclient/#mockups)
 
