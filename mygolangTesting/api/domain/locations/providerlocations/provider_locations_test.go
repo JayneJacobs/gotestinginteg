@@ -46,7 +46,7 @@ func TestGetCountryTimeout(t *testing.T) {
 	assert.Nil(t, country)
 	assert.NotNil(t, err)
 	assert.EqualValues(t, http.StatusInternalServerError, err.Status)
-	assert.EqualValues(t, "invalid error interface when getting country  BR", err.Message)
+	assert.EqualValues(t, "invalid error interface when getting country BR", err.Message)
 }
 
 func TestGetCountryNotFound(t *testing.T) {
@@ -125,7 +125,7 @@ func TestGetCountryNoError(t *testing.T) {
 	assert.EqualValues(t, "BR", country.Id)
 	assert.EqualValues(t, "Brasil", country.Name)
 	assert.EqualValues(t, "GMT-03:00", country.TimeZone)
-	assert.EqualValues(t, 24, len(country.State))
-	fmt.Println(len(country.State))
+	assert.EqualValues(t, 6, len(country.Name))
+	fmt.Println(len(country.Name))
 
 }
