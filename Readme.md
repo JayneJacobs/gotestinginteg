@@ -1,9 +1,8 @@
-# Testing and Integration with go
+# 1. Testing and Integration with go
 
 <!-- TOC -->
 
-- [Testing and Integration with go](#testing-and-integration-with-go)
-  - [1. Testing with Go](#1-testing-with-go)
+- [1. Testing and Integration with go](#1-testing-and-integration-with-go)
     - [1.1. Course Repo](#11-course-repo)
     - [1.2. Types of testing](#12-types-of-testing)
     - [1.3. Artifacts of each Test Type](#13-artifacts-of-each-test-type)
@@ -15,10 +14,10 @@
     - [2.1. API Library](#21-api-library)
     - [3.1 http using Gin](#31-http-using-gin)
     - [3.2 Stretchr/testify](#32-stretchrtestify)
-  - [Functional Test](#functional-test)
+  - [4. Functional Test](#4-functional-test)
 
 <!-- /TOC -->
-## 1. Testing with Go
+
 ### 1.1. Course Repo
 
 ```sh
@@ -151,4 +150,4 @@ test.Obj.On("Do Something", 123).Return(true, nil)
 
 github.com/stretchr/testify/mock
 
-## Functional Test
+## 4. Functional Test
