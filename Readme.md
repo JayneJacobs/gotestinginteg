@@ -12,8 +12,8 @@
   - [1.7. Benchmark Testing](#17-benchmark-testing)
   - [2. Assertions](#2-assertions)
   - [2.1. API Library](#21-api-library)
-  - [http using Gin](#http-using-gin)
-  - [Stretchr/testify](#stretchrtestify)
+  - [3.1 http using Gin](#31-http-using-gin)
+  - [3.2 Stretchr/testify](#32-stretchrtestify)
 
 <!-- /TOC -->
 
@@ -129,7 +129,7 @@ merdadolibre/golang-restclient
 
 [rest.StartMockupServer()](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go)
 
-## http using Gin
+## 3.1 http using Gin
 "github.com/gin-gonic/gin"
 
 
@@ -138,7 +138,7 @@ merdadolibre/golang-restclient
 Controller call --> Service --> Provider --> API
 ![Controller call --> Service --> Provider --> API](Resources/ArtifactsofTypes.png)
 
-## Stretchr/testify
+## 3.2 Stretchr/testify
 has a mock package
 
 type myMockObject struct {
