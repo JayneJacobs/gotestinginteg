@@ -121,7 +121,7 @@ merdadolibre/golang-restclient
 
 [Countries API](https://api.mercadolibre.com/countries)
 
-[Testing the API](mygolang-testing/api/domain/locations/povider_locations/provider_locations_test.go)
+[Testing the API](mygolang-testing/api/domain/locations/poviderlocations/provider_locations_test.go)
 
 ## 3. [Mockups](https://github.com/mercadolibre/golang-restclient/#mockups)
 
