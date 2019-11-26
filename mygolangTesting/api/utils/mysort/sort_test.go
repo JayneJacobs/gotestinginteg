@@ -1,11 +1,11 @@
-package sort
+package mysort
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
-	"gotrain/golang-testing/src/api/services"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBubbleSort(t *testing.T) {
@@ -20,7 +20,7 @@ func TestBubbleSort(t *testing.T) {
 	assert.EqualValues(t, 10, len(elements))
 
 	timeoutChan := make(chan bool, 1)
-
+	defer close(timeoutChan)
 	go func() {
 		BubbleSort(elements)
 		timeoutChan <- false
@@ -35,7 +35,7 @@ func TestBubbleSort(t *testing.T) {
 		assert.Fail(t, "bubble sort took more than 500 ms")
 		return
 	}
-
+	assert.NotNil(t, elements)
 	fmt.Println(elements)
 	// if elements[len(elements)-1] != 0 {
 	// 	t.Error("The lastElement should be 0. it is ", lelement)
@@ -61,14 +61,30 @@ func TestBubbleSortDesc(t *testing.T) {
 	elements := []int{9, 8, 7, 5, 4, 6, 1, 0, 3, 2}
 	fmt.Println(elements)
 
-	BubbleSortDesc(elements)
+	timeoutChan := make(chan bool, 1)
+	defer close(timeoutChan)
+	go func() {
+		BubbleSortDesc(elements)
+		timeoutChan <- false
+	}()
+
+	go func() {
+		time.Sleep(500 * time.Millisecond)
+		timeoutChan <- true
+	}()
+
+	if <-timeoutChan {
+		assert.Fail(t, "bubblesortdesc took more than 500 ms")
+		return
+	}
+
 	lelement := elements[len(elements)-1]
-	if elements[len(elements)-1] != 0 {
-		t.Error("The lastElement should be 0. it is ", lelement)
+	if elements[len(elements)-1] != 9 {
+		t.Error("The lastElement should be 9. it is ", lelement)
 	}
 	felement := elements[0]
-	if elements[0] != 9 {
-		t.Error("The first element should be 9, it is ", felement)
+	if elements[0] != 0 {
+		t.Error("The first element should be 0, it is ", felement)
 	}
 	fmt.Println(elements)
 }
@@ -90,8 +106,18 @@ func TestSort(t *testing.T) {
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
-	elements := services.GetElements(10)
+	elements := getElements(10)
 	for i := 0; i < b.N; i++ {
 		BubbleSort(elements)
 	}
+}
+
+func getElements(n int) []int {
+	result := make([]int, n)
+	j := 0
+	for i := n - 1; i > 0; i-- {
+		result[j] = i
+		j++
+	}
+	return result
 }

@@ -103,7 +103,7 @@ func BenchmarkSort(b *testing.B) {
 	}
 }
 
-func GetElements(n int) []int {
+func getElements(n int) []int {
 	result := make([]int, n)
 	j := 0
 	for i := n - 1; i > 0; i-- {

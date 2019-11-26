@@ -1,4 +1,4 @@
-package sort
+package mysort
 
 import "sort"
 
@@ -6,7 +6,8 @@ import "sort"
 func BubbleSort(elements []int) {
 	keepWorking := true
 	for keepWorking {
-		keepWorking = false
+		//Comment out the following to test infinit loop
+		// keepWorking = false
 		for i := 0; i < len(elements)-1; i++ {
 			if elements[i] < elements[i+1] {
 				keepWorking = true

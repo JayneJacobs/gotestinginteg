@@ -10,8 +10,10 @@
   - [1.5. Steps to follow when writing a test cast](#15-steps-to-follow-when-writing-a-test-cast)
   - [1.6. Test Coverage](#16-test-coverage)
   - [1.7. Benchmark Testing](#17-benchmark-testing)
-- [2. Assertions](#2-assertions)
+  - [2. Assertions](#2-assertions)
   - [2.1. API Library](#21-api-library)
+  - [http using Gin](#http-using-gin)
+- [Stretchr/testify](#stretchrtestify)
 
 <!-- /TOC -->
 
@@ -100,26 +102,52 @@ t.Error Statement will continue to execute after a fail condition.
 
 [Project Integration](mygolang-testing/IntegrationTest.md)
 
-
 ## 1.7. [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
 
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
 Test different approaches to solving a problem.
 
-# 2. Assertions
+## 2. [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)
 
-Go Does not have assertions by default; you can create them with error statements. 
+Go Does not have assertions by default; you can create them with error statements.
 
 github.com/stretcher/testify/assert
 
-
-## 2.1. [API Library](mygolang-testing/api/domain/locations/povider_locations/scenarios.md)
+## 2.1. [API Library](mygolangTesting/api/domain/locations/povider_locations/scenarios.md)
 
 merdadolibre/golang-restclient
 
-``` go get github.com/mercadolibre/golang-restclient/rest```
+```go get github.com/mercadolibre/golang-restclient/rest```
 
-https://api.mercadolibre.com/countries
-
+[Countries API](https://api.mercadolibre.com/countries)
 
 [Testing the API](mygolang-testing/api/domain/locations/povider_locations/provider_locations_test.go)
+
+## 3. [Mockups](https://github.com/mercadolibre/golang-restclient/#mockups)
+
+```go test -mock```
+
+[rest.StartMockupServer()](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go)
+
+
+## http using Gin
+"github.com/gin-gonic/gin"
+
+
+[CreateContext](mygolangTesting/api/controllers/controller_locations_test.go)
+
+Controller call --> Service --> Provider --> API
+![Controller call --> Service --> Provider --> API](Resources/ArtifactsofTypes.png)
+
+
+# Stretchr/testify
+has a mock package 
+
+type myMockObject struct {
+    mock.Mock
+}
+
+test.Obj.On("Do Something", 123).Return(true, nil)
+
+github.com/stretchr/testify/mock
+
