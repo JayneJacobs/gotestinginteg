@@ -13,7 +13,7 @@
   - [2. Assertions](#2-assertions)
   - [2.1. API Library](#21-api-library)
   - [http using Gin](#http-using-gin)
-- [Stretchr/testify](#stretchrtestify)
+  - [Stretchr/testify](#stretchrtestify)
 
 <!-- /TOC -->
 
@@ -129,7 +129,6 @@ merdadolibre/golang-restclient
 
 [rest.StartMockupServer()](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go)
 
-
 ## http using Gin
 "github.com/gin-gonic/gin"
 
@@ -139,9 +138,8 @@ merdadolibre/golang-restclient
 Controller call --> Service --> Provider --> API
 ![Controller call --> Service --> Provider --> API](Resources/ArtifactsofTypes.png)
 
-
-# Stretchr/testify
-has a mock package 
+## Stretchr/testify
+has a mock package
 
 type myMockObject struct {
     mock.Mock
@@ -150,4 +148,3 @@ type myMockObject struct {
 test.Obj.On("Do Something", 123).Return(true, nil)
 
 github.com/stretchr/testify/mock
-
