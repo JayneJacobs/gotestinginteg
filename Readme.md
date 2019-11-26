@@ -3,27 +3,28 @@
 <!-- TOC -->
 
 - [1. Testing and Integration with go](#1-testing-and-integration-with-go)
-  - [1.1. Course Repo](#11-course-repo)
-  - [1.2. Types of testing](#12-types-of-testing)
-  - [1.3. Artifacts of each Test Type](#13-artifacts-of-each-test-type)
-  - [1.4. Pyramid of Tests](#14-pyramid-of-tests)
-  - [1.5. Steps to follow when writing a test cast](#15-steps-to-follow-when-writing-a-test-cast)
-  - [1.6. Test Coverage](#16-test-coverage)
-  - [1.7. Benchmark Testing](#17-benchmark-testing)
+    - [1.1. Course Repo](#11-course-repo)
+    - [1.2. Types of testing](#12-types-of-testing)
+    - [1.3. Artifacts of each Test Type](#13-artifacts-of-each-test-type)
+    - [1.4. Pyramid of Tests](#14-pyramid-of-tests)
+    - [1.5. Steps to follow when writing a test cast](#15-steps-to-follow-when-writing-a-test-cast)
+    - [1.6. Test Coverage](#16-test-coverage)
+    - [1.7. Benchmark Testing](#17-benchmark-testing)
   - [2. Assertions](#2-assertions)
-  - [2.1. API Library](#21-api-library)
-  - [3.1 http using Gin](#31-http-using-gin)
-  - [3.2 Stretchr/testify](#32-stretchrtestify)
+    - [2.1. API Library](#21-api-library)
+    - [3.1 http using Gin](#31-http-using-gin)
+    - [3.2 Stretchr/testify](#32-stretchrtestify)
+  - [Functional Test](#functional-test)
 
 <!-- /TOC -->
 
-## 1.1. Course Repo
+### 1.1. Course Repo
 
 ```sh
 git clone https://github.com/federicoleon/golang-testing.git
 ```
 
-## 1.2. Types of testing
+### 1.2. Types of testing
 
 ![TestType](Resources/TestTypes.png)
 
@@ -46,11 +47,11 @@ Not as rich or complete
 
 **Systems:**
 
-## 1.3. Artifacts of each Test Type
+### 1.3. Artifacts of each Test Type
 
 ![TestType](Resources/ArtifactsofTypes.png)
 
-## 1.4. Pyramid of Tests
+### 1.4. Pyramid of Tests
 
 ![Pyramid](Resources/Pyramid.png)
 
@@ -65,7 +66,7 @@ func TestFunctionName(t *testing.T) {
     //Validate
 }
 
-## 1.5. Steps to follow when writing a test cast
+### 1.5. Steps to follow when writing a test cast
 
 1. Initialization
 2. Execution
@@ -75,7 +76,7 @@ func TestFunctionName(t *testing.T) {
 go test (everything in package)
 go test -v .
 
-## 1.6. Test Coverage
+### 1.6. Test Coverage
 
 go test -cover
 
@@ -102,7 +103,7 @@ t.Error Statement will continue to execute after a fail condition.
 
 [Project Integration](mygolang-testing/IntegrationTest.md)
 
-## 1.7. [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
+### 1.7. [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
 
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
 Test different approaches to solving a problem.
@@ -113,7 +114,7 @@ Go Does not have assertions by default; you can create them with error statement
 
 github.com/stretcher/testify/assert
 
-## 2.1. [API Library](mygolangTesting/api/domain/locations/providerlocations/scenarios.md)
+### 2.1. [API Library](mygolangTesting/api/domain/locations/providerlocations/scenarios.md)
 
 merdadolibre/golang-restclient
 
@@ -129,7 +130,7 @@ merdadolibre/golang-restclient
 
 [rest.StartMockupServer()](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go)
 
-## 3.1 http using Gin
+### 3.1 http using Gin
 "github.com/gin-gonic/gin"
 
 
@@ -138,7 +139,7 @@ merdadolibre/golang-restclient
 Controller call --> Service --> Provider --> API
 ![Controller call --> Service --> Provider --> API](Resources/ArtifactsofTypes.png)
 
-## 3.2 Stretchr/testify
+### 3.2 Stretchr/testify
 has a mock package
 
 type myMockObject struct {
@@ -148,3 +149,5 @@ type myMockObject struct {
 test.Obj.On("Do Something", 123).Return(true, nil)
 
 github.com/stretchr/testify/mock
+
+## Functional Test
