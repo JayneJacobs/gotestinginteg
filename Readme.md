@@ -1,8 +1,9 @@
-# 1. Testing and Integration with go
+# Testing and Integration with go
 
 <!-- TOC -->
 
-- [1. Testing and Integration with go](#1-testing-and-integration-with-go)
+- [Testing and Integration with go](#testing-and-integration-with-go)
+  - [1. Testing with Go](#1-testing-with-go)
     - [1.1. Course Repo](#11-course-repo)
     - [1.2. Types of testing](#12-types-of-testing)
     - [1.3. Artifacts of each Test Type](#13-artifacts-of-each-test-type)
@@ -10,14 +11,14 @@
     - [1.5. Steps to follow when writing a test cast](#15-steps-to-follow-when-writing-a-test-cast)
     - [1.6. Test Coverage](#16-test-coverage)
     - [1.7. Benchmark Testing](#17-benchmark-testing)
-  - [2. Assertions](#2-assertions)
+- [2. Assertions](#2-assertions)
     - [2.1. API Library](#21-api-library)
     - [3.1 http using Gin](#31-http-using-gin)
     - [3.2 Stretchr/testify](#32-stretchrtestify)
   - [Functional Test](#functional-test)
 
 <!-- /TOC -->
-
+## 1. Testing with Go
 ### 1.1. Course Repo
 
 ```sh
@@ -108,7 +109,7 @@ t.Error Statement will continue to execute after a fail condition.
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
 Test different approaches to solving a problem.
 
-## 2. [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)
+# 2. [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)
 
 Go Does not have assertions by default; you can create them with error statements.
 
