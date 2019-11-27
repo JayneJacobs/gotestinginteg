@@ -12,7 +12,7 @@
         - [Steps to follow when writing a test cast](#steps-to-follow-when-writing-a-test-cast)
         - [Test Coverage](#test-coverage)
         - [Benchmark Testing](#benchmark-testing)
-    - [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)](#assertionshttpsdrivegooglecomfiled1r5q5i1satsp510tcinq6fhpjwbxvmuytviewuspsharing)
+    - [Assertions](#assertions)
         - [API Library](#api-library)
         - [http using Gin](#http-using-gin)
         - [Stretchr/testify](#stretchrtestify)
@@ -112,7 +112,7 @@ t.Error Statement will continue to execute after a fail condition.
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
 Test different approaches to solving a problem.
 
-## Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)
+## [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)
 
 Go Does not have assertions by default; you can create them with error statements.
 
