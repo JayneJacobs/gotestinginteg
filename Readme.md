@@ -1,14 +1,37 @@
 # 1. Testing and Integration with go
 
-<!-- TOC -->autoauto- [1. Testing and Integration with go](#1-testing-and-integration-with-go)auto        - [1.1. Course Repo](#11-course-repo)auto        - [1.2. Types of testing](#12-types-of-testing)auto        - [1.3. Artifacts of each Test Type](#13-artifacts-of-each-test-type)auto        - [1.4. Pyramid of Tests](#14-pyramid-of-tests)auto        - [1.5. Steps to follow when writing a test cast](#15-steps-to-follow-when-writing-a-test-cast)auto        - [1.6. Test Coverage](#16-test-coverage)auto        - [1.7. [Benchmark Testing](mygolang-testing/BenchmarkTest.md)](#17-benchmark-testingmygolang-testingbenchmarktestmd)auto- [2. [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)](#2-assertionshttpsdrivegooglecomfiled1r5q5i1satsp510tcinq6fhpjwbxvmuytviewuspsharing)auto        - [2.1. [API Library](mygolangTesting/api/domain/locations/providerlocations/scenarios.md)](#21-api-librarymygolangtestingapidomainlocationsproviderlocationsscenariosmd)auto        - [3.1 http using Gin](#31-http-using-gin)auto        - [3.2 Stretchr/testify](#32-stretchrtestify)auto    - [4. Functional Test](#4-functional-test)auto    - [E 4.1 Black Box Test](#e-41-black-box-test)auto        - [4.2 Tests in In test folder](#42-tests-in-in-test-folder)autoauto<!-- /TOC -->
 
-### 1.1. Course Repo
+## 1.1. Unit Testing and Integration Testing
+<!-- TOC -->
+
+- [1. Testing and Integration with go](#1-testing-and-integration-with-go)
+    - [1.1. Unit Testing and Integration Testing](#11-unit-testing-and-integration-testing)
+        - [1.1.1. Course Repo](#111-course-repo)
+        - [1.1.2. Types of testing](#112-types-of-testing)
+        - [1.1.3. Artifacts of each Test Type](#113-artifacts-of-each-test-type)
+        - [1.1.4. Pyramid of Tests](#114-pyramid-of-tests)
+        - [1.1.5. Steps to follow when writing a test cast](#115-steps-to-follow-when-writing-a-test-cast)
+        - [1.1.6. Test Coverage](#116-test-coverage)
+        - [1.1.7. Benchmark Testing](#117-benchmark-testing)
+    - [1.2. Assertions](#12-assertions)
+        - [1.2.1. API Library](#121-api-library)
+        - [1.2.2. http using Gin](#122-http-using-gin)
+        - [1.2.3. Stretchr/testify](#123-stretchrtestify)
+    - [1.3. Functional Test](#13-functional-test)
+        - [1.3.1. Black Box Test](#131-black-box-test)
+        - [1.3.2. Tests in In test folder](#132-tests-in-in-test-folder)
+
+<!-- /TOC -->
+
+### 1.1.1. Course Repo
+
 
 ```sh
 git clone https://github.com/federicoleon/golang-testing.git
 ```
 
-### 1.2. Types of testing
+
+### 1.1.2. Types of testing
 
 ![TestType](Resources/TestTypes.png)
 
@@ -31,11 +54,13 @@ Not as rich or complete
 
 **Systems:**
 
-### 1.3. Artifacts of each Test Type
+
+### 1.1.3. Artifacts of each Test Type
 
 ![TestType](Resources/ArtifactsofTypes.png)
 
-### 1.4. Pyramid of Tests
+
+### 1.1.4. Pyramid of Tests
 
 ![Pyramid](Resources/Pyramid.png)
 
@@ -50,7 +75,9 @@ func TestFunctionName(t *testing.T) {
     //Validate
 }
 
-### 1.5. Steps to follow when writing a test cast
+
+
+### 1.1.5. Steps to follow when writing a test cast
 
 1. Initialization
 2. Execution
@@ -60,7 +87,8 @@ func TestFunctionName(t *testing.T) {
 go test (everything in package)
 go test -v .
 
-### 1.6. Test Coverage
+
+### 1.1.6. Test Coverage
 
 go test -cover
 
@@ -87,18 +115,23 @@ t.Error Statement will continue to execute after a fail condition.
 
 [Project Integration](mygolang-testing/IntegrationTest.md)
 
-### 1.7. [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
+
+
+### 1.1.7. [Benchmark Testing](mygolang-testing/BenchmarkTest.md)
 
 Bubble Sort is the worst possible type of Sort Algorithm. Compare to Native Sort using Benchmarks.
 Test different approaches to solving a problem.
 
-# 2. [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)
+
+## 1.2. [Assertions](https://drive.google.com/file/d/1r5q5i1sATsP510TCInQ6FhPjWbXVMUyt/view?usp=sharing)
 
 Go Does not have assertions by default; you can create them with error statements.
 
 github.com/stretcher/testify/assert
 
-### 2.1. [API Library](mygolangTesting/api/domain/locations/providerlocations/scenarios.md)
+
+
+### 1.2.1. [API Library](mygolangTesting/api/domain/locations/providerlocations/scenarios.md)
 
 merdadolibre/golang-restclient
 
@@ -108,13 +141,15 @@ merdadolibre/golang-restclient
 
 [Testing the API](mygolang-testing/api/domain/locations/providerlocations/provider_locations_test.go)
 
-## 3. [Mockups](https://github.com/mercadolibre/golang-restclient/#mockups)
+
+## 3. [Mockups](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go#L94)
 
 ```go test -mock```
 
 [rest.StartMockupServer()](mygolangTesting/api/domain/locations/providerlocations/provider_locations_test.go)
 
-### 3.1 http using Gin
+
+### 1.2.2. http using Gin
 
 "github.com/gin-gonic/gin"
 
@@ -124,7 +159,9 @@ merdadolibre/golang-restclient
 Controller call --> Service --> Provider --> API
 ![Controller call --> Service --> Provider --> API](Resources/ArtifactsofTypes.png)
 
-### 3.2 Stretchr/testify
+
+
+### 1.2.3. Stretchr/testify
 
 has a mock package
 
@@ -138,7 +175,8 @@ test.Obj.On("Do Something", 123).Return(true, nil)
 
 github.com/stretchr/testify/mock
 
-## 4. Functional Test
+
+## 1.3. Functional Test
 
 Using MVC Model View Controller Architecture
 
@@ -168,7 +206,8 @@ coverage: 100.0% of statements
 ok      gotrain/GoTestingInteg/mygolangTesting/api/controllers  0.020s
 ```
 
-##E 4.1 Black Box Test
+
+### 1.3.1. Black Box Test
 ![BlackBox](Resources/BlackBoxTest.png)
 
 Brief test run 
@@ -203,9 +242,11 @@ PASS
 ok      gotrain/GoTestingInteg/mygolangTesting/api/controllers  (cached)
 ```
 
-### 4.2 [Tests in In test folder]
+
+
+### 1.3.2. [Tests in In test folder](mygolangTesting/api/tests/base_test.go)
 
 1. Put all tests in a single folder
 2. Use one test main function
 3. Run the application and use tests against the running application. 
-4. 
+
