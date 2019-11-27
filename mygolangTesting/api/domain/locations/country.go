@@ -1,23 +1,27 @@
 package locations
 
+// Country struct
 type Country struct {
-	Id             string `json:"id"`
+	ID             string `json:"id"`
 	Name           string `json:"name"`
 	TimeZone       string `json:"time_zone"`
 	GeoInformation GeoInformation
 	State          []State
 }
 
+// GeoInformation struct
 type GeoInformation struct {
-	location GeoLocations `json:"location"`
+	Location GeoLocations `json:"location"`
 }
 
+// GeoLocations struct
 type GeoLocations struct {
-	latitude  float64 `json:"latitude"`
-	longitude float64 `json:"longitude"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
 }
 
+// State struct
 type State struct {
-	Id   string `json:"id"`
+	ID   string `json:"id"`
 	Name string `json:"name"`
 }

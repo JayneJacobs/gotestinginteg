@@ -17,6 +17,31 @@ func TestGetCountriesnotFound(t *testing.T) {
 	// Mock
 	rest.FlushMockups()
 	rest.AddMockups(&rest.Mock{
+		URL:          "https://api.mercadolibre.com/countries/BI",
+		HTTPMethod:   http.MethodGet,
+		RespHTTPCode: http.StatusInternalServerError,
+		RespBody:     `{"status":500,"message":"invalid error interface when getting country BR","error":""}`,
+	})
+	// Execute
+	fmt.Println("Function test get countries")
+	response, err := http.Get("http://localhost:8000/locations/countries/BR")
+
+	// Validate
+	assert.Nil(t, err)
+	assert.NotNil(t, response)
+	var apiErrors errors.APIerror
+	bytes, _ := ioutil.ReadAll(response.Body)
+	fmt.Println(string(bytes))
+	err = json.Unmarshal(bytes, &apiErrors)
+	assert.Nil(t, err)
+	assert.EqualValues(t, http.StatusInternalServerError, response.StatusCode)
+	assert.EqualValues(t, "invalid error interface when getting country BR", apiErrors.Message)
+}
+
+func TestGetCountriesNoError(t *testing.T) {
+	// Mock
+	rest.FlushMockups()
+	rest.AddMockups(&rest.Mock{
 		URL:          "https://api.mercadolibre.com/countries/BR",
 		HTTPMethod:   http.MethodGet,
 		RespHTTPCode: http.StatusOK,
@@ -33,11 +58,7 @@ func TestGetCountriesnotFound(t *testing.T) {
 	bytes, _ := ioutil.ReadAll(response.Body)
 	fmt.Println(string(bytes))
 	err = json.Unmarshal(bytes, &apiErrors)
-	assert.NotNil(t, err)
-	assert.EqualValues(t, http.StatusNotFound, apiErrors.Status)
-	assert.EqualValues(t, "no country with id BR", apiErrors.Message)
-}
-
-func TestGetCountriesNoError(t *testing.T) {
-	//T"ODO: Implement
+	assert.Nil(t, err)
+	assert.EqualValues(t, http.StatusOK, response.StatusCode)
+	assert.EqualValues(t, "", apiErrors.Message)
 }

@@ -122,7 +122,7 @@ func TestGetCountryNoError(t *testing.T) {
 	//Validate
 	assert.NotNil(t, country)
 	assert.Nil(t, err)
-	assert.EqualValues(t, "BR", country.Id)
+	assert.EqualValues(t, "BR", country.ID)
 	assert.EqualValues(t, "Brasil", country.Name)
 	assert.EqualValues(t, "GMT-03:00", country.TimeZone)
 	assert.EqualValues(t, 6, len(country.Name))
