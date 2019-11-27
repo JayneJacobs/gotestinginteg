@@ -16,7 +16,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var getCountryFunc func(countryId string) (*locations.Country, *errors.APIerror)
+var getCountryFunc func(countryID string) (*locations.Country, *errors.APIerror)
 
 func TestMain(m *testing.M) {
 	rest.StartMockupServer()
@@ -25,11 +25,11 @@ func TestMain(m *testing.M) {
 
 type locationServiceMock struct{}
 
-func (*locationServiceMock) GetCountry(countryId string) (*locations.Country, *errors.APIerror) {
-	return getCountryFunc(countryId)
+func (*locationServiceMock) GetCountry(countryID string) (*locations.Country, *errors.APIerror) {
+	return getCountryFunc(countryID)
 }
 func TestGetCountryNotFound(t *testing.T) {
-	getCountryFunc = func(countryId string) (*locations.Country, *errors.APIerror) {
+	getCountryFunc = func(countryID string) (*locations.Country, *errors.APIerror) {
 		return nil, &errors.APIerror{Status: http.StatusNotFound, Message: "Country not found"}
 	}
 
@@ -53,7 +53,7 @@ func TestGetCountryNotFound(t *testing.T) {
 	c, _ := gin.CreateTestContext(response)
 	c.Request, _ = http.NewRequest(http.MethodGet, "", nil)
 	c.Params = gin.Params{
-		{Key: "country_id", Value: "AR"},
+		{Key: "country_ID", Value: "AR"},
 	}
 	GetCountry(c)
 	assert.EqualValues(t, http.StatusNotFound, response.Code)
@@ -66,8 +66,8 @@ func TestGetCountryNotFound(t *testing.T) {
 }
 
 func TestGetCountryNoError(t *testing.T) {
-	getCountryFunc = func(countryId string) (*locations.Country, *errors.APIerror) {
-		return &locations.Country{Id: "BR", Name: "Brasil", TimeZone: "3.00+GMT"}, nil
+	getCountryFunc = func(countryID string) (*locations.Country, *errors.APIerror) {
+		return &locations.Country{ID: "BR", Name: "Brasil", TimeZone: "3.00+GMT"}, nil
 	}
 
 	services.LocationsService = &locationServiceMock{}
@@ -76,7 +76,7 @@ func TestGetCountryNoError(t *testing.T) {
 	c, _ := gin.CreateTestContext(response)
 	c.Request, _ = http.NewRequest(http.MethodGet, "", nil)
 	c.Params = gin.Params{
-		{Key: "country_id", Value: "BR"},
+		{Key: "country_ID", Value: "BR"},
 	}
 	GetCountry(c)
 	assert.EqualValues(t, http.StatusOK, response.Code)
@@ -86,5 +86,5 @@ func TestGetCountryNoError(t *testing.T) {
 	fmt.Printf("this is the result %v", country)
 	assert.EqualValues(t, "Brasil", country.Name)
 	assert.Nil(t, err)
-	assert.EqualValues(t, "BR", country.Id)
+	assert.EqualValues(t, "BR", country.ID)
 }

@@ -11,7 +11,7 @@ import (
 type locationsService struct{}
 
 type locationServiceInterface interface {
-	GetCountry(countryId string) (*locations.Country, *errors.APIerror)
+	GetCountry(countryID string) (*locations.Country, *errors.APIerror)
 }
 
 // LocationsService is the locationServiceInterface
@@ -22,10 +22,10 @@ func init() {
 	LocationsService = &locationsService{}
 }
 
-// GetCountry takes a countryId
+// GetCountry takes a countryID
 // and returns a pointer to locations.Country and a pointer to an APIerror
-func (s *locationsService) GetCountry(countryId string) (*locations.Country, *errors.APIerror) {
+func (s *locationsService) GetCountry(countryID string) (*locations.Country, *errors.APIerror) {
 	fmt.Println("Inside Service")
-	return providerlocations.GetCountry(countryId)
+	return providerlocations.GetCountry(countryID)
 
 }
