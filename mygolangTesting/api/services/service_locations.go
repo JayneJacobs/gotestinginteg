@@ -2,9 +2,9 @@ package services
 
 import (
 	"fmt"
-	"gotrain/GoTestingInteg/mygolangTesting/api/domain/locations"
-	"gotrain/GoTestingInteg/mygolangTesting/api/domain/locations/providerlocations"
-	"gotrain/GoTestingInteg/mygolangTesting/api/utils/errors"
+	"gotestinginteg/mygolangTesting/api/domain/locations"
+	"gotestinginteg/mygolangTesting/api/domain/locations/providerlocations"
+	"gotestinginteg/mygolangTesting/api/utils/errors"
 )
 
 // initialized = false set to true when the package is called

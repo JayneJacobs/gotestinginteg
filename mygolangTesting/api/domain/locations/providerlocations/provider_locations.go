@@ -7,8 +7,8 @@ import (
 
 	"github.com/mercadolibre/golang-restclient/rest"
 
-	"gotrain/GoTestingInteg/mygolangTesting/api/domain/locations"
-	"gotrain/GoTestingInteg/mygolangTesting/api/utils/errors"
+	"gotestinginteg/mygolangTesting/api/domain/locations"
+	"gotestinginteg/mygolangTesting/api/utils/errors"
 )
 
 const (

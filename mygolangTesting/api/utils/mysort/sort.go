@@ -7,7 +7,7 @@ func BubbleSort(elements []int) {
 	keepWorking := true
 	for keepWorking {
 		//Comment out the following to test infinit loop
-		// keepWorking = false
+		keepWorking = false
 		for i := 0; i < len(elements)-1; i++ {
 			if elements[i] < elements[i+1] {
 				keepWorking = true
@@ -21,7 +21,7 @@ func BubbleSort(elements []int) {
 func BubbleSortDesc(elements []int) {
 	keepWorking := true
 	for keepWorking {
-		// keepWorking = false
+		//keepWorking = false
 		for i := 0; i < len(elements)-1; i++ {
 			keepWorking = false
 			if elements[i] < elements[i+1] {

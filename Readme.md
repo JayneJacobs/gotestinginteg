@@ -19,6 +19,7 @@
     - [Functional Test](#functional-test)
         - [Black Box Test](#black-box-test)
         - [Tests in In test folder](#tests-in-in-test-folder)
+    - [Final Test Results](#final-test-results)
 
 <!-- /TOC -->
 
@@ -91,7 +92,7 @@ go test -cover
 [0 1 2 3 4 5 6 7 8 9]
 PASS
 coverage: 100.0% of statements
-ok      gotrain/GoTestingInteg/mygolang-testing/utils/sort      0.005s
+ok      gotestingintegmygolang-testing/utils/sort      0.005s
 PASML-335382:sort jjacob151$
 ```
 
@@ -165,7 +166,7 @@ Commandline testing
 
 ```sh
 go test -cover
-?       gotrain/GoTestingInteg/mygolangTesting/api      [no test files]
+?       gotestinginteg/mygolangTesting/api      [no test files]
 PASML-335382:api jjacob151$ cd controllers/
 PASML-335382:controllers jjacob151$ go test -cover
 Init Service
@@ -184,7 +185,7 @@ Inside Controller
 Inside Controller
 this is the result {BR Brasil 3.00+GMT {{0 0}} []}PASS
 coverage: 100.0% of statements
-ok      gotrain/GoTestingInteg/mygolangTesting/api/controllers  0.020s
+ok      gotestinginteg/mygolangTesting/api/controllers  0.020s
 ```
 
 ### Black Box Test
@@ -195,7 +196,7 @@ Brief test run
 
 ```sh
  go test .
-ok      gotrain/GoTestingInteg/mygolangTesting/api/controllers  (cached)
+ok      gotestinginteg/mygolangTesting/api/controllers  (cached)
 ```
 
 Verbose Test Run
@@ -221,7 +222,7 @@ Inside Controller
 Inside Controller
 this is the result {BR Brasil 3.00+GMT {{0 0}} []}--- PASS: TestGetCountryNoError (0.00s)
 PASS
-ok      gotrain/GoTestingInteg/mygolangTesting/api/controllers  (cached)
+ok      gotestinginteg/mygolangTesting/api/controllers  (cached)
 ```
 
 ### [Tests in In test folder](mygolangTesting/api/tests/base_test.go)
@@ -229,3 +230,20 @@ ok      gotrain/GoTestingInteg/mygolangTesting/api/controllers  (cached)
 1. Put all tests in a single folder
 2. Use one test main function
 3. Run the application and use tests against the running application.
+
+
+
+## Final Test Results 
+
+```sh
+$ go test -cover ./...
+?       gotestinginteg/mygolangTesting/api      [no test files]
+?       gotestinginteg/mygolangTesting/api/app  [no test files]
+ok      gotestinginteg/mygolangTesting/api/controllers  (cached)        coverage: 100.0% of statements
+?       gotestinginteg/mygolangTesting/api/domain/locations     [no test files]
+ok      gotestinginteg/mygolangTesting/api/domain/locations/providerlocations   (cached)        coverage: 93.3% of statements
+ok      gotestinginteg/mygolangTesting/api/services     0.016s  coverage: 50.0% of statements
+ok      gotestinginteg/mygolangTesting/api/tests        (cached)        coverage: 0.0% of statements
+?       gotestinginteg/mygolangTesting/api/utils/errors [no test files]
+ok      gotestinginteg/mygolangTesting/api/utils/mysort 0.017s  coverage: 100.0% of statements
+```

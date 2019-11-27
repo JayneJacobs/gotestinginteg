@@ -2,8 +2,7 @@ package services
 
 import (
 	"fmt"
-	"gotrain/GoTestingInteg/mygolangTesting/api/utils/mysort"
-	"mygolang-testing/utils/sort"
+	"gotestinginteg/mygolangTesting/api/utils/mysort"
 )
 
 const (
@@ -23,7 +22,7 @@ func Sort(elements []int) {
 // BSortLimit Limits by using native sort for elements > 10000
 func BSortLimit(elements []int) {
 	if len(elements) <= 10000 {
-		sort.BubbleSort(elements)
+		mysort.BubbleSort(elements)
 		return
 	}
 	mysort.Sort(elements)

@@ -3,9 +3,9 @@ package controllers
 import (
 	"encoding/json"
 	"fmt"
-	"gotrain/GoTestingInteg/mygolangTesting/api/domain/locations"
-	"gotrain/GoTestingInteg/mygolangTesting/api/services"
-	"gotrain/GoTestingInteg/mygolangTesting/api/utils/errors"
+	"gotestinginteg/mygolangTesting/api/domain/locations"
+	"gotestinginteg/mygolangTesting/api/services"
+	"gotestinginteg/mygolangTesting/api/utils/errors"
 	"net/http"
 	"net/http/httptest"
 	"os"

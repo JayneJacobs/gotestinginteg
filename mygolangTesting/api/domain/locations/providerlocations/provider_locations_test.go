@@ -18,10 +18,16 @@ func TestMain(m *testing.M) {
 }
 
 func TestGetCountryRestclientError(t *testing.T) {
+	rest.FlushMockups()
 	rest.AddMockups(&rest.Mock{
 		URL:          "https://api.mercadolibre.com/countries/BR",
 		HTTPMethod:   http.MethodGet,
-		RespHTTPCode: 0,
+		RespHTTPCode: http.StatusNotFound,
+		RespBody: `{
+			"message": "Country not found",
+			"error": "not_found", 
+			"status": 404, 
+			"cause": []`,
 	})
 	//Init
 	// Execute
@@ -30,10 +36,11 @@ func TestGetCountryRestclientError(t *testing.T) {
 	assert.Nil(t, country)
 	assert.NotNil(t, err)
 	assert.EqualValues(t, http.StatusInternalServerError, err.Status)
-	assert.EqualValues(t, "invalid restclient response when trying to get country BR", err.Message)
+	assert.EqualValues(t, "invalid error interface when getting country BR", err.Message)
 }
 
 func TestGetCountryTimeout(t *testing.T) {
+	rest.FlushMockups()
 	rest.AddMockups(&rest.Mock{
 		URL:          "https://api.mercadolibre.com/countries/AR",
 		HTTPMethod:   http.MethodGet,
@@ -50,7 +57,7 @@ func TestGetCountryTimeout(t *testing.T) {
 }
 
 func TestGetCountryNotFound(t *testing.T) {
-
+	rest.FlushMockups()
 	rest.AddMockups(&rest.Mock{
 		URL:          "https://api.mercadolibre.com/countries/IR",
 		HTTPMethod:   http.MethodGet,
@@ -71,6 +78,7 @@ func TestGetCountryNotFound(t *testing.T) {
 }
 
 func TestGetCountryInvalid(t *testing.T) {
+	rest.FlushMockups()
 	rest.AddMockups(&rest.Mock{
 		URL:          "https://api.mercadolibre.com/countries/IR",
 		HTTPMethod:   http.MethodGet,
@@ -91,6 +99,7 @@ func TestGetCountryInvalid(t *testing.T) {
 }
 
 func TestGetCountryInvalidJson(t *testing.T) {
+	rest.FlushMockups()
 	rest.AddMockups(&rest.Mock{
 		URL:          "https://api.mercadolibre.com/countries/BR",
 		HTTPMethod:   http.MethodGet,
@@ -112,6 +121,7 @@ func TestGetCountryInvalidJson(t *testing.T) {
 }
 
 func TestGetCountryNoError(t *testing.T) {
+	rest.FlushMockups()
 	rest.AddMockups(&rest.Mock{
 		URL:          "https://api.mercadolibre.com/countries/BR",
 		HTTPMethod:   http.MethodGet,

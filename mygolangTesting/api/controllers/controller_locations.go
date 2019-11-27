@@ -2,7 +2,8 @@ package controllers
 
 import (
 	"fmt"
-	"gotrain/GoTestingInteg/mygolangTesting/api/services"
+	"gotestinginteg/mygolangTesting/api/services"
+
 	"net/http"
 
 	"github.com/gin-gonic/gin"
